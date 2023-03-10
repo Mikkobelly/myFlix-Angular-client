@@ -26,6 +26,8 @@ export class UserLoginFormComponent implements OnInit {
     this.fetchApiData.userLogin(this.userData).subscribe({
       next: (result) => {
         console.log(result);
+        localStorage.setItem('user', result.user.Username);
+        localStorage.setItem('token', result.token);
         this.dialogRef.close(); // Close the modal on success
         this.snackBar.open(`Welcome Back ${this.userData.Username}`, 'OK', { duration: 2000 });
       },
@@ -33,7 +35,7 @@ export class UserLoginFormComponent implements OnInit {
         console.log(error);
         this.snackBar.open(error, 'OK', { duration: 2000 })
       },
-      complete: () => console.log('complete')
+      // complete: () => console.log('complete')
     })
   }
 }
