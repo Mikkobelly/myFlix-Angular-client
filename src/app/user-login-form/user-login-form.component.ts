@@ -6,31 +6,28 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 // Used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
 @Component({
-  selector: 'app-user-registration-form',
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss']
+  selector: 'app-user-login-form',
+  templateUrl: './user-login-form.component.html',
+  styleUrls: ['./user-login-form.component.scss']
 })
-export class UserRegistrationFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+export class UserLoginFormComponent implements OnInit {
+  @Input() userData = { Username: '', Password: '' }
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
+    public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar
   ) { }
 
-  // Called once the component has received all its inputs from the real-life user
   ngOnInit(): void { }
 
-  // function to send the form inputs to the backend
-  registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe({
+  loginUser(): void {
+    this.fetchApiData.userLogin(this.userData).subscribe({
       next: (result) => {
         console.log(result);
         this.dialogRef.close(); // Close the modal on success
-        this.snackBar.open('User registered successfully!', 'OK', { duration: 2000 });
+        this.snackBar.open(`Welcome Back ${this.userData.Username}`, 'OK', { duration: 2000 });
       },
       error: (error) => {
         console.log(error);
