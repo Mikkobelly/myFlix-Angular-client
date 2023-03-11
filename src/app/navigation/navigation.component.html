@@ -11,8 +11,8 @@
     <a mat-button routerLink="/profile" class="profile-button" aria-label="button for profile page">
         <span>Profile</span>
     </a>
-    <a mat-button class="logout-icon" aria-label="button to log out">
+    <button mat-button class="logout-icon" aria-label="button to log out" (click)="logOutUser()">
         <span>Log out</span>
         <mat-icon>exit_to_app</mat-icon>
-    </a>
+    </button>
 </mat-toolbar>

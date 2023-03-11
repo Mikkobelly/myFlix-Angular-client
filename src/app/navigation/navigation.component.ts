@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -6,5 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  constructor(
+    public snackBar: MatSnackBar,
+    public router: Router
+  ) { }
+
   ngOnInit(): void { }
+
+  logOutUser(): void {
+    const user = localStorage.getItem('user');
+    this.snackBar.open(`Goodbye ${user}`, 'OK', {
+      duration: 3000
+    });
+    this.router.navigate(['welcome']);
+    localStorage.clear();
+  }
 }

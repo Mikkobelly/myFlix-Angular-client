@@ -1,0 +1,18 @@
+.edit-card {
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    &_submit {
+        margin-right: 20px;
+    }
+}
+
+.mat-mdc-card-header {
+    padding: 16px;
+}
+
+.mdc-card__actions {
+    padding: 8px 7px 16px;
+}

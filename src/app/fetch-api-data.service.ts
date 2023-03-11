@@ -184,6 +184,7 @@ export class FetchApiDataService {
         }
       )
     }).pipe(
+      map(this.extractResponseData),
       catchError(this.handleError)
     )
   }
