@@ -67,7 +67,7 @@ export class FetchApiDataService {
     return this.http.get(`${apiUrl}/movies/director/${directorName}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -82,7 +82,7 @@ export class FetchApiDataService {
     return this.http.get(`${apiUrl}/movies/genre/${genreName}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -98,7 +98,7 @@ export class FetchApiDataService {
     return this.http.get(`${apiUrl}/users/${username}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -114,7 +114,7 @@ export class FetchApiDataService {
     return this.http.get(`${apiUrl}/users/${username}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -133,7 +133,7 @@ export class FetchApiDataService {
     }, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -148,7 +148,7 @@ export class FetchApiDataService {
     return this.http.delete(`${apiUrl}/users/${username}/movies/${movieId}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -164,7 +164,7 @@ export class FetchApiDataService {
     return this.http.put(`${apiUrl}/users/${username}`, updatedUserDetails, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(
@@ -180,7 +180,7 @@ export class FetchApiDataService {
     return this.http.delete(`${apiUrl}/users/${username}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       )
     }).pipe(

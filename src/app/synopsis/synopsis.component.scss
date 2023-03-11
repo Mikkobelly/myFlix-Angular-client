@@ -1,0 +1,12 @@
+.synopsis-card {
+    max-width: 500px;
+    padding: 25px;
+
+    &_close {
+        margin-left: auto;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

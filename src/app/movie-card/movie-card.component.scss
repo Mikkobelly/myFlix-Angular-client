@@ -1,0 +1,19 @@
+.movie-cards_container {
+    width: 80%;
+    margin: 35px auto;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.movie-img_box {
+    // width: 100%;
+}
+
+.movie-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,14 @@
+<app-navigation></app-navigation>
+<div class="profile-container">
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <mat-card-subtitle>Profile</mat-card-subtitle>
+            <button mat-button class="profile-card_edit">Edit Profile</button>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Username: {{user.Username}}</p>
+            <p>Email: {{user.Email}}</p>
+            <p>Birthday: {{user.Birthday | date:'longDate'}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

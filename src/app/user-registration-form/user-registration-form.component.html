@@ -5,18 +5,23 @@
     <mat-card-content>
         <form>
             <mat-form-field>
-                <input matInput [(ngModel)]="userData.Username" type="text" placeholder="Username" name="Username"
+                <input matInput [(ngModel)]="userData.Username" type="text" placeholder="Username*" name="Username"
                     required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="userData.Password" type="password" placeholder="Password" name="Password"
+                <input matInput [(ngModel)]="userData.Password" type="password" placeholder="Password*" name="Password"
                     required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="userData.Email" type="email" placeholder="Email" name="Email" required>
+                <input matInput [(ngModel)]="userData.Email" type="email" placeholder="Email*" name="Email" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="userData.Birthday" type="date" placeholder="Birthday" name="Birthday">
+                <input matInput [(ngModel)]="userData.Birthday" type="date" placeholder="Birthday*" name="Birthday">
+                <!-- <input matInput [matDatepicker]="picker" [(ngModel)]="userData.Birthday" type="date"
+                    placeholder="Birthday*" name="Birthday">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker> -->
             </mat-form-field>
         </form>
     </mat-card-content>
