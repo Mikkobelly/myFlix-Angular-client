@@ -10,7 +10,7 @@
 
 .movie-card {
     width: 100%;
-    box-shadow: 3px 1px 15px rgb(0, 0, 0, .3);
+    box-shadow: 0 3px 15px hsla(0, 0%, 100%, 0.651);
     background-color: #383838;
 
     &__fav-box {
@@ -75,6 +75,7 @@
         margin-right: 1rem;
     }
 }
+
 
 @media all and (max-width: 1080px) {
     .movie-cards__container {
