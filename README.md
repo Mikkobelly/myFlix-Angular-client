@@ -51,4 +51,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## App showcase
 
-![screenshot](src/assets/myFlix-Angular.jp)
+<img alt="A screenshot of myFlix-Angular App" src="/src/assets/myFlix-Angular.jpg" width="100%">
