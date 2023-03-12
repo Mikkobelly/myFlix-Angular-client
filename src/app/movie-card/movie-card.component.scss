@@ -1,19 +1,144 @@
-.movie-cards_container {
+.movie-cards__container {
     width: 80%;
-    margin: 35px auto;
+    margin: 3.5rem auto;
     display: grid;
     justify-items: center;
-    align-items: center;
+    align-items: start;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+    grid-gap: 3.5rem;
 }
 
-.movie-img_box {
-    // width: 100%;
-}
-
-.movie-img {
+.movie-card {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    box-shadow: 3px 1px 15px rgb(0, 0, 0, .3);
+    background-color: #383838;
+
+    &__fav-box {
+        margin-left: auto;
+
+        &:hover {
+            background-color: rgba(199, 194, 194, 0.585);
+        }
+    }
+
+    &__fav {
+        color: #ee0a56;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .65;
+        }
+    }
+
+    &__img-box {
+        width: 100%;
+        height: 40rem;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__dialog--genre,
+    &__dialog--director,
+    &__dialog--synopsis {
+        color: hsla(0, 6%, 93%, 0.923) !important;
+
+        &:hover {
+            background-color: rgba(29, 29, 29, 0.597);
+        }
+    }
+}
+
+.mat-mdc-card-header {
+    padding: 2rem 1.6rem 0 2rem;
+}
+
+.mat-mdc-card-title {
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.mat-mdc-card-subtitle {
+    margin-bottom: 1.5rem;
+    color: hsla(0, 2%, 88%, 0.89);
+}
+
+.mdc-card__actions {
+    justify-content: center;
+    padding: 1.5rem 1rem;
+
+    & button:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+@media all and (max-width: 1080px) {
+    .movie-cards__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .movie-card {
+        &__img-box {
+            height: 38rem;
+        }
+    }
+}
+
+@media all and (max-width: 870px) {
+    .movie-card {
+
+        &__fav {
+            width: 4.5rem;
+            height: 4.5rem;
+            font-size: 2.5rem;
+        }
+
+        &__img-box {
+            height: 30rem;
+        }
+    }
+}
+
+@media all and (max-width: 780px) {
+
+    .movie-card {
+        &__img-box {
+            height: 27rem;
+        }
+    }
+}
+
+@media all and (max-width: 680px) {
+    .movie-cards__container {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-card {
+
+        &__fav {
+            font-size: 3.5rem;
+        }
+
+        &__img-box {
+            height: 45rem;
+        }
+    }
+}
+
+@media all and (max-width: 380px) {
+
+    .movie-card {
+
+        &__img-box {
+            height: 37.5rem;
+        }
+    }
+
+    .mat-mdc-card-header {
+        padding: 1.6rem 1.25rem 0;
+    }
 }

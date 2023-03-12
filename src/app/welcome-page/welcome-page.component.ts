@@ -16,11 +16,11 @@ export class WelcomePageComponent implements OnInit {
 
   // Open the signup dialog
   openUserRegistrationDialog(): void {
-    this.dialog.open(UserRegistrationFormComponent, { width: '300px' });
+    this.dialog.open(UserRegistrationFormComponent);
   }
 
   // Open the login dialog
   openUserLoginDialog(): void {
-    this.dialog.open(UserLoginFormComponent, { width: '300px' });
+    this.dialog.open(UserLoginFormComponent);
   }
 }

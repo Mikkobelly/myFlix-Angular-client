@@ -125,7 +125,7 @@ export class FetchApiDataService {
   }
 
   // API call for adding a movie to user's favorite movies
-  addFaveMovie(movieId: string): Observable<any> {
+  addFavMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http.post(`${apiUrl}/users/${username}/movies/${movieId}`, {
@@ -137,6 +137,7 @@ export class FetchApiDataService {
         }
       )
     }).pipe(
+      map(this.extractResponseData),
       catchError(this.handleError)
     )
   }
@@ -152,6 +153,7 @@ export class FetchApiDataService {
         }
       )
     }).pipe(
+      map(this.extractResponseData),
       catchError(this.handleError)
     )
   }

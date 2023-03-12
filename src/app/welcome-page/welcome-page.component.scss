@@ -1,3 +1,46 @@
-.main-page {
+.welcome-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-card {
+    background-color: #383838;
+    margin: 5vw;
+    padding: 4.5rem;
     text-align: center;
+    margin-top: -10vw;
+    box-shadow: 0 0 3rem rgba(255, 255, 255, 0.555);
+}
+
+h1 {
+    margin-top: 0;
+}
+
+h1 span {
+    font-family: 'Passion One', cursive;
+    font-size: 3.8rem;
+}
+
+.mdc-button {
+    width: max-content;
+    font-size: 2rem;
+    padding: 2.2rem 2.75rem;
+}
+
+.mdc-button:first-child {
+    margin-right: 2rem;
+}
+
+.mat-icon {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    font-size: 2rem !important;
+}
+
+@media all and (max-width: 440px) {
+    .mdc-button {
+        margin-bottom: 1rem;
+    }
 }
