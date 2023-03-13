@@ -14,12 +14,18 @@ export class WelcomePageComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // Open the signup dialog
+  /**
+   * Open regisration dialog
+   * @function openUserRegistrationDialog
+   */
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent);
   }
 
-  // Open the login dialog
+  /**
+   * Open login dialog
+   * @function openUserLoginDialog
+   */
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent);
   }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { FetchApiDataService } from '../fetch-api-data.service';
 import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
 import { SynopsisComponent } from '../synopsis/synopsis.component';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -26,6 +28,11 @@ export class MovieCardComponent implements OnInit {
     this.getFavMovies();
   }
 
+  /**
+   * Fetch movies via API and set movies state to returned data
+   * @returns an array of movie objects
+   * @function getMovies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -33,6 +40,11 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * Fetch user data via API and set favourite movies state to returned data 
+   * @returns an array of user's favorite movie IDs
+   * @function getFavMovies
+   */
   getFavMovies(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favMovies = resp.FavoriteMovies;
@@ -41,33 +53,16 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
-  openGenreDialog(Name: string, Description: string): void {
-    this.dialog.open(GenreComponent, {
-      data: {
-        Name, Description
-      }
-    });
-  }
-
-  openDirectorDialog(Name: string, Bio: string, Birth: string): void {
-    this.dialog.open(DirectorComponent, {
-      data: {
-        Name, Bio, Birth
-      }
-    })
-  }
-
-  openSynopsisDialog(Description: string): void {
-    this.dialog.open(SynopsisComponent, {
-      data: {
-        Description
-      }
-    })
-  }
-
+  /**
+   * Adds the movie to user's favourites or remove one if it is in the favorites list 
+   * and update favourite movies state
+   * @param {string} movieId 
+   * @returns updates user object
+   * @function toggleFavMovie
+   */
   toggleFavMovie(movieId: string): void {
     if (!this.favMovies.includes(movieId)) {
-      // Add movie to favorite
+      // Adds a movie to favorite
       this.fetchApiData.addFavMovie(movieId).subscribe({
         next: (resp: any) => {
           console.log(resp);
@@ -80,7 +75,7 @@ export class MovieCardComponent implements OnInit {
         },
       })
     } else {
-      // Remove movie from favorite
+      // Removes a movie from favorite
       this.fetchApiData.deleteFavMovie(movieId).subscribe({
         next: (resp: any) => {
           console.log(resp);
@@ -93,5 +88,47 @@ export class MovieCardComponent implements OnInit {
         },
       })
     }
+  }
+
+  /**
+   * Opens genre dialog
+   * @param Name 
+   * @param Description 
+   * @function openGenreDialog
+   */
+  openGenreDialog(Name: string, Description: string): void {
+    this.dialog.open(GenreComponent, {
+      data: {
+        Name, Description
+      }
+    });
+  }
+
+  /**
+   * Opens director dialog
+   * @param Name 
+   * @param Bio 
+   * @param Birth 
+   * @function openDirectorDialog
+   */
+  openDirectorDialog(Name: string, Bio: string, Birth: string): void {
+    this.dialog.open(DirectorComponent, {
+      data: {
+        Name, Bio, Birth
+      }
+    })
+  }
+
+  /**
+   * Opens movie's synopsis dialog
+   * @param Description 
+   * @function openSynopsisDialog
+   */
+  openSynopsisDialog(Description: string): void {
+    this.dialog.open(SynopsisComponent, {
+      data: {
+        Description
+      }
+    })
   }
 }

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -24,19 +25,28 @@ export class ProfileComponent implements OnInit {
     this.getUserInfo();
   }
 
+  /**
+   * Fetch user data via API and set user state to returned data
+   * @return user object
+   * @function getUserInfo
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      console.log('getUserInfo(): ')
-      console.log(this.user);
+      // console.log(this.user);
       return this.user;
     })
   }
 
+  /**
+   * Delete user from database via API, clear user data from localStorage
+   * and navigate to welcome page
+   * @function deleteUser
+   */
   deleteUser(): void {
     if (confirm('Are you sure you want to delete your account? This action cannnot be undone.')) {
       this.router.navigate(['welcome']).then(() => {
-        localStorage.clear();
+        localStorage.clear(); // Clear user data on localStorage
         this.snackBar.open('You have successfully deleted your account!', 'OK', {
           duration: 3000
         });
@@ -48,6 +58,13 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  /**
+   * Open form dialog for editting user profile and pass current user data to the form
+   * @param Username 
+   * @param Email 
+   * @param Birthday
+   * @function openEditFormDialog 
+   */
   openEditFormDialog(Username: string, Email: string, Birthday: any): void {
     this.dialog.open(EditFormComponent, {
       data: {

@@ -1,12 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-// To close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
-// To bring in the API calls we created in 6.2
-import { FetchApiDataService } from '../fetch-api-data.service';
-// Used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
-// To user router
 import { Router } from '@angular/router';
+import { FetchApiDataService } from '../fetch-api-data.service';
+
 
 @Component({
   selector: 'app-user-login-form',
@@ -25,10 +22,17 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /**
+   * Send the form inputs to the backend via API, store user data on localStorage 
+   * and navigate to main page(/movies)
+   * {@link FetchApiDataService}
+   * @function loginUser
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe({
       next: (result) => {
-        console.log(result);
+        // console.log(result);
+        // Store username and token on localStorage
         localStorage.setItem('user', result.user.Username);
         localStorage.setItem('token', result.token);
         this.dialogRef.close(); // Close the modal on success
@@ -38,8 +42,7 @@ export class UserLoginFormComponent implements OnInit {
       error: (error) => {
         console.log(error);
         this.snackBar.open(error, 'OK', { duration: 2000 })
-      },
-      // complete: () => console.log('complete')
+      }
     })
   }
 }

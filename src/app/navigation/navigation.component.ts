@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -15,6 +16,10 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /**
+   * Log out user (clear user data from localStorage) and navigate to welcome page
+   * @function logOutUser
+   */
   logOutUser(): void {
     const user = localStorage.getItem('user');
     this.snackBar.open(`Goodbye ${user}`, 'OK', {
