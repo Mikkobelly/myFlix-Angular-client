@@ -13,7 +13,7 @@ It is a single-page, responsive application that includes several interface view
 
 ## Key features
 
-- The app display a welcome view where use can chose to login or sign up.
+- The app displays a welcome view where use can choose to login or sign up.
 - After sign up for the first time, user can login with username and password.
 - Once logged in, the movie view will be shown, which contains a list of all the movies.
 - Upon clicking different buttons (synopsis, genre and director) on a particular movie, corresponding information dialog will be shown.
